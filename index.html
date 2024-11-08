@@ -16,13 +16,19 @@
         video {
             max-width: 100%;
             height: auto;
+            pointer-events: none; /* Disable interaction */
         }
     </style>
 </head>
 <body>
-    <video controls>
+    <video autoplay muted>
         <source src="https://media.discordapp.net/attachments/1280273040017588364/1304244949872545935/copy_BB88FF65-0268-467F-B0BB-90D0088227AE.mov?ex=672eb043&is=672d5ec3&hm=6ed1e94ff1e521e8fb242ff62fef1bd828114dc354908f240602c5dc95c74672&" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <script>
+        document.querySelector('video').addEventListener('ended', function() {
+            window.close(); // Close the page when the video ends
+        });
+    </script>
 </body>
 </html>
